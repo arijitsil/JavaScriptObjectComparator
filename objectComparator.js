@@ -1,12 +1,13 @@
 let incomingStructure = {
   deviceName: "A",
-  devices: {
+  device: { 
     id: 1,
-    value: 3,
-    prop1: "new type",
+    value: "3",  // type mistmatch
+    prop1: "new type", // value mismatch
+          // missing key
     signals: {
-      rawType: "digital",
-      rawValue: 3
+      rawType: "digital", // value mismatch
+      rawValue: 3  // value mismatch
     }
   }
 };
