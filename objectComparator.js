@@ -25,6 +25,7 @@ let baseStructure = {
     }
   }
 };
+
 function generateObjectValue(anyObject) {
   let valueObject = {};
   let level = 0;
@@ -36,10 +37,9 @@ function generateObjectValue(anyObject) {
       } else {
         arrayKey = prevValue + "." + value;
       }
+      valueObject[arrayKey] = someObject[value];
       if (typeof someObject[value] === "object") {
         return getLevel(arrayKey, someObject[value], ++level);
-      } else {
-        valueObject[arrayKey] = someObject[value];
       }
       return null;
     });
