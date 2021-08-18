@@ -1,4 +1,4 @@
-# JavaScriptObjectComparator v1.0.1
+# JavaScriptObjectComparator v1.0.2
 
 This utility method conpares two Javascript objects and provides the following information as a javascript object:
 
