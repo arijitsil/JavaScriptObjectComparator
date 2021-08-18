@@ -86,4 +86,4 @@ const valueComparator = (value1, value2, diff) => {
 };
 
 
-export default objectComparator;
+module.exports = objectComparator
