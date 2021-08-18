@@ -1,4 +1,4 @@
-# JavaScriptObjectComparator v1.0.2
+# JavaScriptObjectComparator v1.0.1
 
 This utility method conpares two Javascript objects and provides the following information as a javascript object:
 
@@ -8,7 +8,7 @@ This utility method conpares two Javascript objects and provides the following i
 
 ## Installation
 
-npm i --save @arijit.sil/object-diff-gen
+npm i --save object-diff-gen
 
 ## Example Usage
 
