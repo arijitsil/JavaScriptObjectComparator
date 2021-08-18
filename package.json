@@ -1,5 +1,5 @@
 {
-  "name": "@arijit.sil/object-diff-gen",
+  "name": "object-diff-gen",
   "version": "1.0.2",
   "description": "A utility function to compare two objects based on missing properties, types and values",
   "main": "objectComparator.js",
