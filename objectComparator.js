@@ -1,32 +1,23 @@
-let incomingStructure = {
-  deviceName: "A",
-  device: { 
-    id: 1,
-    value: "3",  // type mistmatch
-    prop1: "new type", // value mismatch
-          // missing key
-    signals: {
-      rawType: "digital", // value mismatch
-      rawValue: 3  // value mismatch
-    }
+function objectComparator(objArray, ref = 0) {
+  if (objArray.length !== 2) {
+    return "Please provide array of size 2 for comparison";
   }
+  if (objArray[ref] === objArray[!ref]) {
+    return "It's same object";
+  }
+  const diff = {};
+  const key1 = generateObjectLevel(objArray[ref === 0 ? 0 : 1]);
+  const key2 = generateObjectLevel(objArray[ref === 0 ? 1 : 0]);
+  keyComparator({ ...key1 }, { ...key2 }, diff);
+
+  const value1 = generateObjectValue(objArray[ref === 0 ? 0 : 1]);
+  const value2 = generateObjectValue(objArray[ref === 0 ? 1 : 0]);
+  valueComparator({ ...value1 }, { ...value2 }, diff);
+
+  return diff;
 };
 
-let baseStructure = {
-  deviceName: "A",
-  device: {
-    id: 1,
-    value: 3,
-    prop1: "old type",
-    prop2: "some value",
-    signals: {
-      rawType: "digitals",
-      rawValue: 2
-    }
-  }
-};
-
-function generateObjectValue(anyObject) {
+const generateObjectValue = (anyObject) => {
   let valueObject = {};
   let level = 0;
   const getLevel = (prevValue, someObject, level) => {
@@ -47,7 +38,8 @@ function generateObjectValue(anyObject) {
   getLevel(undefined, anyObject, level);
   return valueObject;
 }
-function generateObjectLevel(anyObject) {
+
+const generateObjectLevel = (anyObject) => {
   let lvlObject = {};
   let level = 0;
   const getLevel = (prevValue, someObject, level) => {
@@ -68,6 +60,7 @@ function generateObjectLevel(anyObject) {
   getLevel(undefined, anyObject, level);
   return lvlObject;
 }
+
 const keyComparator = (key1, key2, diff) => {
   diff.missingkeys = [];
   Object.keys(key1).map((key) => {
@@ -92,20 +85,5 @@ const valueComparator = (value1, value2, diff) => {
   });
 };
 
-const objectComparator = (objArray, ref = 0) => {
-  if (objArray.length !== 2) {
-    return "Please provide array of size 2 for comparison";
-  }
-  if (objArray[ref] === objArray[!ref]) {
-    return "It's same object";
-  }
-  const diff = {};
-  const key1 = generateObjectLevel(objArray[ref === 0 ? 0 : 1]);
-  const key2 = generateObjectLevel(objArray[ref === 0 ? 1 : 0]);
-  keyComparator({ ...key1 }, { ...key2 }, diff);
-  const value1 = generateObjectValue(objArray[ref === 0 ? 0 : 1]);
-  const value2 = generateObjectValue(objArray[ref === 0 ? 1 : 0]);
-  valueComparator({ ...value1 }, { ...value2 }, diff);
-  return diff;
-};
-console.log(objectComparator([baseStructure, incomingStructure]));
+
+export default objectComparator;

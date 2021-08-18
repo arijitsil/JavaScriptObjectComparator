@@ -1,0 +1,27 @@
+{
+  "name": "object-compare",
+  "version": "1.0.0",
+  "description": "A utility function to compare two objects based on missing properties, types and values",
+  "main": "objectComparator.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arijitsil/JavaScriptObjectComparator.git"
+  },
+  "keywords": [
+    "object",
+    "comparator",
+    "missing",
+    "keys",
+    "mismatch",
+    "types"
+  ],
+  "author": "Arijit Sil",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/arijitsil/JavaScriptObjectComparator/issues"
+  },
+  "homepage": "https://github.com/arijitsil/JavaScriptObjectComparator#readme"
+}
